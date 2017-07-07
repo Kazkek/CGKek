@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<!--
+##################################################
+# Profile: [O] [MIN] Leveling 1-60 + 1-60 Quests #
+##################################################
+# Authors: CGkek                                 #
+#		   y2Krazy								 #
+##################################################
+# Version: 1.0.0                                 #
+##################################################
+# Required Level: 61                              #
+##################################################
+# Required User Interaction:                     #
+#  None                                          #
+##################################################
+# Required Setup:                                #
+#  Fill out User Configuration below.            #
+#  Level 61+ Miner                                #
+#  Set Miner Gear Set below.                     #
+##################################################
+-->
+<!-- User Configuration -->
+<!DOCTYPE Profile [
+
+<!-- Do you want to discover any unknown items in the Gathering Log? -->
+
+<!ENTITY DiscoverUnknowns "True">
+]>
+<!-- End User Configuration -->
+<Profile>
+	<Name>[O] [MIN] Leveling 61-70 (v1.0.0)</Name>
+	<KillRadius>90</KillRadius>
+	<CodeChunks>
+
+		<!-- Modify Gear Set -->
+
+		<CodeChunk Name="Miner">
+			<![CDATA[ 
+				ff14bot.Managers.ChatManager.SendChat("/gs change 21");
+		]]>
+		</CodeChunk>
+
+		<!-- End Modify Gear Set -->
+
+		<CodeChunk Name="DisableMount">
+			<![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+    	]]>
+		</CodeChunk>
+		<CodeChunk Name="Dismount">
+			<![CDATA[
+				ff14bot.Managers.ActionManager.Dismount();
+    	]]>
+		</CodeChunk>
+		<CodeChunk Name="EnableMount">
+			<![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+    	]]>
+		</CodeChunk>
+		<CodeChunk Name="Prospect">
+			<![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(225) && ActionManager.CurrentActions.TryGetValue(227, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(227, Core.Me);
+    	]]>
+		</CodeChunk>
+		<CodeChunk Name="Stealth">
+			<![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(47) && ActionManager.CurrentActions.TryGetValue(229, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(229, Core.Me);
+    	]]>
+		</CodeChunk>
+	</CodeChunks>
+	<Order>			
+		<RunCode Name="Prospect" />
+		<If Condition="not IsOnMap(612)">
+			<TeleportTo Name="The Peering Stones" AetheryteId="99" />
+		</If>
+			<Gather Stealth="True">
+<!--				<If Condition="IsTimeBetween(2,3)">
+					<LogMessage Message="Mining Triphane" />
+						<GatherObject>Unspoiled Mineral Deposit</GatherObject>
+						<HotSpots>
+							<HotSpot Radius="95" XYZ="26.91648, 9.35495, -293.7341" />
+						</HotSpots>
+							<ItemNames>
+							<ItemName>Raw Triphane</ItemName>
+							</ItemNames>
+							<Slot>6</Slot>
+							<GatheringSkillOrder>
+								<GatheringSkill SpellName="Sharp Vision II" TimesToCast="1" />
+							</GatheringSkillOrder>
+				</If>-->
+<!--				<If Condition="IsOnMap(612)">-->
+				<GatherObject>Mineral Deposit</GatherObject>
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="91.69914, 48.55192, -405.1123" />
+					<HotSpot Radius="95" XYZ="81.91648, 41.35495, -293.7341" />
+					<HotSpot Radius="95" XYZ="261.688, 42.2803, -292.8531" />
+				</HotSpots>
+				<ItemNames>
+						<ItemName>Raw Kyanite</ItemName>
+				</ItemNames>
+				<Slot>6</Slot>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Sharp Vision II" TimesToCast="1" />
+				</GatheringSkillOrder>
+<!--				</If>
+				<If Condition="IsOnMap(620)">
+				<If Condition="GameObjectManager.GetObjectByNPCId(1073793331).IsVisible">
+				<RunCode Name="Stealth" />
+															
+				<GatherObject>Rocky Outcrop</GatherObject>
+
+				<HotSpots>
+					<HotSpot Radius="95" XYZ="112.1841, 125.6707, -530.7367" />
+					<HotSpot Radius="95" XYZ="-16.4299, 124.7495, -390.2696" />
+					<HotSpot Radius="95" XYZ="167.7336, 142.8796, -338.2339" />
+				</HotSpots>
+				<ItemNames>
+						<ItemName>Stiperstone</ItemName>
+				</ItemNames>
+				<Slot>7</Slot>
+				<GatheringSkillOrder>
+					<GatheringSkill SpellName="Sharp Vision II" TimesToCast="1" />
+				</GatheringSkillOrder>
+				</If>
+				</If>-->
+			</Gather>  
+	</Order>
+</Profile>

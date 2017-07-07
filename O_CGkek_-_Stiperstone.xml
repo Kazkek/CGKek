@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##################################################
+# Profile: [O] [MIN] Leveling 1-60 + 1-60 Quests #
+##################################################
+# Authors: CGkek                                 #
+##################################################
+# Version: 1.0.0                                 #
+##################################################
+# Required Level: 61                              #
+##################################################
+# Required User Interaction:                     #
+#  None                                          #
+##################################################
+# Required Setup:                                #
+#  Fill out User Configuration below.            #
+#  Level 1+ Miner                                #
+#  Set Miner Gear Set below.                     #
+##################################################
+-->
+<Profile>
+  <Name>[O] [MIN] Leveling 61-70 (v1.0.0)</Name>
+  <CodeChunks>
+    <CodeChunk Name="Miner">
+      <![CDATA[ 
+				ff14bot.Managers.ChatManager.SendChat("/gs change 21");
+		]]>
+    </CodeChunk>
+    <CodeChunk Name="DisableMount">
+      <![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Dismount">
+      <![CDATA[
+				ff14bot.Managers.ActionManager.Dismount();
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="EnableMount">
+      <![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Prospect">
+      <![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(225) && ActionManager.CurrentActions.TryGetValue(227, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(227, Core.Me);
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Stealth">
+      <![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(47) && ActionManager.CurrentActions.TryGetValue(229, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(229, Core.Me);
+    	]]>
+    </CodeChunk>
+  </CodeChunks>
+  <Order>
+    <RunCode Name="Prospect" />
+<!--    <If Condition="not IsOnMap(612)">
+      <TeleportTo Name="The Peering Stones" AetheryteId="99" />
+    </If>-->
+    <ExMoveTo XYZ="117.9192, 144.8541, -633.8979" /> <!-- Moving us to the mining area -->
+    <RunCode Name="Dismount" />
+    <RunCode Name="DisableMount" /> <!-- We add a DisableMount so it doesn't mount up and break stealth -->
+    <RunCode Name="Stealth" />
+    <ExGather DiscoverUnknowns="True" While="True">
+      <GatherObject>Rocky Outcrop</GatherObject>
+      <GatherSpots>
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="119.1804, 114.3518, -545.5121" nodeLocation="119.4435, 115.8088, -536.9033" />
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="-1.49164, 113.7216, -361.0919" nodeLocation="-0.3, 115.2897, -387.7186" />
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="157.1964, 134.6943, -325.1740" nodeLocation="167.7637, 136.6348, -336.8020" />
+      </GatherSpots>
+      <HotSpots>
+			<HotSpot Radius="95" XYZ="112.1841, 125.6707, -530.7367" />
+			<HotSpot Radius="95" XYZ="-16.4299, 124.7495, -390.2696" />
+<!--		<HotSpot Radius="95" XYZ="167.7336, 142.8796, -338.2339" />-->
+			<HotSpot Radius="95" XYZ="157.1964, 134.6943, -325.1740" />
+      </HotSpots>
+      <ItemNames>
+        <ItemName>Stiperstone</ItemName>
+      </ItemNames>
+      <GatherRotation>RegularNode</GatherRotation>
+    </ExGather>
+  </Order>
+</Profile>

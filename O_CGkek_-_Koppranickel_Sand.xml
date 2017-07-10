@@ -77,7 +77,7 @@
 			<HotSpot Radius="95" XYZ="157.1964, 134.6943, -325.1740" />
       </HotSpots>
       <ItemNames>
-        <ItemName>Stiperstone</ItemName>
+        <ItemName>Koppranickel Sand</ItemName>
       </ItemNames>
       <GatherRotation>RegularNode</GatherRotation>
     </ExGather>

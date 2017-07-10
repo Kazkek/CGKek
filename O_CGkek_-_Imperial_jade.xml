@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+##################################################
+# Profile: [O] [MIN] Leveling 1-60 + 1-60 Quests #
+##################################################
+# Authors: CGkek                                 #
+##################################################
+# Version: 1.0.0                                 #
+##################################################
+# Required Level: 61                              #
+##################################################
+# Required User Interaction:                     #
+#  None                                          #
+##################################################
+# Required Setup:                                #
+#  Fill out User Configuration below.            #
+#  Level 1+ Miner                                #
+#  Set Miner Gear Set below.                     #
+##################################################
+-->
+<Profile>
+  <Name>[O] [MIN] Leveling 61-70 (v1.0.0)</Name>
+  <CodeChunks>
+    <CodeChunk Name="Miner">
+      <![CDATA[ 
+				ff14bot.Managers.ChatManager.SendChat("/gs change 21");
+		]]>
+    </CodeChunk>
+    <CodeChunk Name="DisableMount">
+      <![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = false;
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Dismount">
+      <![CDATA[
+				ff14bot.Managers.ActionManager.Dismount();
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="EnableMount">
+      <![CDATA[
+				ff14bot.Settings.CharacterSettings.Instance.UseMount = true;
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Prospect">
+      <![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(225) && ActionManager.CurrentActions.TryGetValue(227, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(227, Core.Me);
+    	]]>
+    </CodeChunk>
+    <CodeChunk Name="Stealth">
+      <![CDATA[
+				SpellData data;
+				if (!Core.Me.HasAura(47) && ActionManager.CurrentActions.TryGetValue(229, out data) && ActionManager.CanCast(data, Core.Me)) ActionManager.DoAction(229, Core.Me);
+    	]]>
+    </CodeChunk>
+  </CodeChunks>
+  <Order>
+    <RunCode Name="Prospect" />
+ <!--  <If Condition="not IsOnMap(614)">
+      <TeleportTo Name="Namai" AetheryteId="107" />
+    </If>-->
+    <ExMoveTo XYZ="400.3245, 5.882876, -649.3096" /> <!-- Moving us to the mining area -->
+    <ExGather DiscoverUnknowns="True" While="True">
+      <GatherObject>Unspoiled Mineral Deposit</GatherObject>
+      <GatherSpots>
+      </GatherSpots>
+      <HotSpots>
+			<HotSpot Radius="95" XYZ="400.3245, 5.882876, -649.3096" />
+      </HotSpots>
+      <ItemNames>
+        <ItemName>Raw Imperial Jade</ItemName>
+      </ItemNames>
+      <GatherRotation>RegularNode</GatherRotation>
+    </ExGather>
+  </Order>
+</Profile>

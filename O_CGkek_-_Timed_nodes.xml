@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 ##################################################
-# Profile: [O] [MIN] Leveling 1-60 + 1-60 Quests #
+# Profile: [O] [MIN] Timed Nodes - Stormblood	 #
 ##################################################
 # Authors: CGkek                                 #
 ##################################################
 # Version: 1.0.0                                 #
 ##################################################
-# Required Level: 61                              #
+# Required Level: 70                             #
 ##################################################
 # Required User Interaction:                     #
 #  None                                          #
 ##################################################
 # Required Setup:                                #
-#  Fill out User Configuration below.            #
-#  Level 1+ Miner                                #
-#  Set Miner Gear Set below.                     #
+#  None						                     #
 ##################################################
 -->
 <Profile>
-  <Name>[O] [MIN] Leveling 61-70 (v1.0.0)</Name>
+  <Name>[O] [MIN] Timed Nodes (v1.0.0)</Name>
   <CodeChunks>
     <CodeChunk Name="Miner">
       <![CDATA[ 
@@ -54,37 +52,221 @@
     	]]>
     </CodeChunk>
   </CodeChunks>
-<!-- The Lochs
-		Almandine Ephemeral 13,16 12-4am
-	Yanxia
-		Perlite Ephemeral 37,19 4pm - 8pm
-		Raw Imperial Jade Unspoiled 29,9 18:00pm or 6am
-	The Fringes
-		Raw Triphane Unspoiled 26,9 2-3am
-	The Azim Steppe
-		Raw Azurite Unspoiled 5,29 4-5am
-		Schorl Ephemeral 29,15 12pm - 4pm
-	The Ruby Sea
-		Raw Star Spinel Unspoiled 15,5 12-1pm-->
   <Order>
     <RunCode Name="Prospect" />
- <!--  <If Condition="not IsOnMap(614)">
-      <TeleportTo Name="Namai" AetheryteId="107" />
-    </If>-->
-	<If Condition="IsTimeBetween(2,3)
-    <ExMoveTo XYZ="400.3245, 5.882876, -649.3096" /> <!-- Moving us to the mining area -->
-    <ExGather DiscoverUnknowns="True" While="True">
-      <GatherObject>Unspoiled Mineral Deposit</GatherObject>
-      <GatherSpots>
-      </GatherSpots>
-      <HotSpots>
-			<HotSpot Radius="95" XYZ="400.3245, 5.882876, -649.3096" />
-      </HotSpots>
-      <ItemNames>
-        <ItemName>Raw Imperial Jade</ItemName>
-      </ItemNames>
-      <GatherRotation>RegularNode</GatherRotation>
-    </ExGather>
+	<While Condition="IsTimeBetween(20,0)">
+		<TeleportTo Name="Porta Praetoria" AetheryteId="102" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="-402.0585, 33.67989, -240.4355" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(20,0)">
+			<GatherObjects>
+				<GatherObject>Ephemeral Mineral Deposit</GatherObject>
+				<GatherObject>Mineral Deposit</GatherObject>
+			</GatherObjects>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="-402.0585, 33.67989, -240.4355" />
+				<HotSpot Radius="95" XYZ="-561.9689, 12.85913, -162.9613" />
+				<HotSpot Radius="95" XYZ="-402.0585, 33.67989, -240.4355" />
+				<HotSpot Radius="95" XYZ="-520.4703, 48.33066, -305.1943" />
+				<HotSpot Radius="95" XYZ="-396.3383, 35.39268, -300.5659" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Almandine</ItemName>
+				<ItemName>Molybdenum Ore</ItemName>
+			</ItemNames>
+			<GatherRotation>RegularNode</GatherRotation>
+		</ExGather>
+	</While>
+	<While Condition="IsTimeBetween(0,4)">
+		<TeleportTo Name="Porta Praetoria" AetheryteId="102" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="-402.0585, 33.67989, -240.4355" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(0,4)">
+			<GatherObjects>
+				<GatherObject>Mineral Deposit</GatherObject>
+				<GatherObject>Ephemeral Mineral Deposit</GatherObject>
+			</GatherObjects>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="-402.0585, 33.67989, -240.4355" />
+				<HotSpot Radius="95" XYZ="-561.9689, 12.85913, -162.9613" />
+				<HotSpot Radius="95" XYZ="-402.0585, 33.67989, -240.4355" />
+				<HotSpot Radius="95" XYZ="-520.4703, 48.33066, -305.1943" />
+				<HotSpot Radius="95" XYZ="-396.3383, 35.39268, -300.5659" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Almandine</ItemName>
+				<ItemName>Molybdenum Ore</ItemName>
+			</ItemNames>
+			<GatherRotation>RegularNode</GatherRotation>
+		</ExGather>
+	</While>
+	<While Condition="IsTimeBetween(4,5)">
+		<TeleportTo Name="The Dawn Throne" AetheryteId="110" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="-821.5028, 146.8071, 148.8474" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(4,5)">
+			<GatherObject>Unspoiled Mineral Deposit</GatherObject>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="-821.5028, 146.8071, 148.8474" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Raw Azurite</ItemName>
+			</ItemNames>
+			<GatherRotation>Unspoiled</GatherRotation>
+		</ExGather>
+	</While>
+	<If Condition="IsTimeBetween(5,5.4)">
+		<TeleportTo Name="The House of the Fierce" AetheryteId="108" Force="True"/>
+		<WaitTimer WaitTime="5" />
 	</If>
+	<While Condition="IsTimeBetween(5,7)">
+		<ExDisablePlugins Names="Enable Flight"/>
+			<ExMoveTo XYZ="268.9961, 7.662205, -411.5191" />
+			<ExMoveTo XYZ="301.0501, 14.46258, -431.587" />
+			<ExMoveTo XYZ="310.4693, 18.8825, -466.8483" />
+			<ExMoveTo XYZ="334.6687, 25.39658, -504.6283" />
+			<ExMoveTo XYZ="334.2604, 24.03889, -537.9302" />
+		<ExEnablePlugins Names="Enable Flight"/>
+		<ExMoveTo XYZ="426.8333, 27.97717, -641.2414" />
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(5,7)">
+			<GatherObject>Unspoiled Mineral Deposit</GatherObject>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="426.8333, 27.97717, -641.2414" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Raw Imperial Jade</ItemName>
+			</ItemNames>
+			<GatherRotation>Unspoiled</GatherRotation>
+		</ExGather>
+	</While>
+	<If Condition="IsTimeBetween(18,18.2)">
+		<TeleportTo Name="The House of the Fierce" AetheryteId="108" Force="True"/>
+		<WaitTimer WaitTime="5" />
+	</If>
+	<While Condition="IsTimeBetween(18.2,18.7)">
+		<ExDisablePlugins Names="Enable Flight"/>
+			<ExMoveTo XYZ="268.9961, 7.662205, -411.5191" />
+			<ExMoveTo XYZ="301.0501, 14.46258, -431.587" />
+			<ExMoveTo XYZ="310.4693, 18.8825, -466.8483" />
+			<ExMoveTo XYZ="334.6687, 25.39658, -504.6283" />
+			<ExMoveTo XYZ="334.2604, 24.03889, -537.9302" />
+			<ExMoveTo XYZ="426.8333, 27.97717, -641.2414" />
+		<ExEnablePlugins Names="Enable Flight"/>
+		<GetTo SubZoneId="2754" XYZ="426.8333, 27.97717, -641.2414" />
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(18.2,18.7)">
+			<GatherObject>Unspoiled Mineral Deposit</GatherObject>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="426.8333, 27.97717, -641.2414" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Raw Imperial Jade</ItemName>
+			</ItemNames>
+			<GatherRotation>Unspoiled</GatherRotation>
+		</ExGather>
+	</While>
+	<While Condition="IsTimeBetween(7,12.5)">
+		<TeleportTo Name="Onokoro" AetheryteId="106" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="-323.4742, 45.96498, -801.1284" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" while="True">
+			<WaitWhile Condition ="not IsTimeBetween(7,12)" />
+			<GatherObject>Unspoiled Mineral Deposit</GatherObject>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="-323.4742, 45.96498, -801.1284" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Raw Star Spinel</ItemName>
+			</ItemNames>
+			<GatherRotation>Unspoiled</GatherRotation>
+		</ExGather>
+	</While>
+	<While Condition="IsTimeBetween(12.5,16)">
+		<TeleportTo Name="The Dawn Throne" AetheryteId="110" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="379.2071, 40.71655, -285.6048" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(13,16)">
+			<GatherObjects>
+				<GatherObject>Ephemeral Mineral Deposit</GatherObject>
+				<GatherObject>Rocky Outcrop</GatherObject>
+			</GatherObjects>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="140" XYZ="379.2071, 40.71655, -285.6048" />
+				<HotSpot Radius="140" XYZ="374.788, 29.59887, -228.7225" />
+				<HotSpot Radius="140" XYZ="332.3639, 44.33568, -345.9274" />
+				<HotSpot Radius="140" XYZ="379.2071, 40.71655, -285.6048" />
+				<HotSpot Radius="140" XYZ="443.5609, 50.03374, -375.7046" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Schorl</ItemName>
+				<ItemName>Palladium Sand</ItemName>
+			</ItemNames>
+			<GatherRotation>RegularNode</GatherRotation>
+		</ExGather>
+	</While>
+	
+	<While Condition="IsTimeBetween(16,18)">
+		<TeleportTo Name="Namai" AetheryteId="107" />
+		<WaitTimer WaitTime="5" />
+		<ExMoveTo XYZ="780.3098, 130.1281, -123.6179" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(16,18)">
+			<GatherObjects>
+				<GatherObject>Ephemeral Rocky Outcrop</GatherObject>
+				<GatherObject>Mineral Deposit</GatherObject>
+			</GatherObjects>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="95" XYZ="780.3098, 130.1281, -123.6179" />
+				<HotSpot Radius="95" XYZ="864.126, 156.1155, -124.8721" />
+				<HotSpot Radius="95" XYZ="819.0714, 149.8288, 5.932585" />
+				<HotSpot Radius="95" XYZ="780.3098, 130.1281, -123.6179" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Perlite</ItemName>
+				<ItemName>Durium Ore</ItemName>
+			</ItemNames>
+			<GatherRotation>Ephemeral</GatherRotation>
+		</ExGather>
+	</While>
+	<If Condition="IsTimeBetween(18.7,20)">
+		<TeleportTo Name="Namai" AetheryteId="107" />
+		<WaitTimer WaitTime="5" />
+	</If>
+	<While Condition="IsTimeBetween(19,20)">
+		<ExMoveTo XYZ="780.3098, 130.1281, -123.6179" /> <!-- Moving us to the mining area -->
+		<ExGather DiscoverUnknowns="True" While="IsTimeBetween(19,20)">
+			<GatherObjects>
+				<GatherObject>Ephemeral Rocky Outcrop</GatherObject>
+				<GatherObject>Mineral Deposit</GatherObject>
+			</GatherObjects>
+			<GatherSpots>
+			</GatherSpots>
+			<HotSpots>
+				<HotSpot Radius="140" XYZ="780.3098, 130.1281, -123.6179" />
+				<HotSpot Radius="95" XYZ="864.126, 156.1155, -124.8721" />
+				<HotSpot Radius="95" XYZ="819.0714, 149.8288, 5.932585" />
+				<HotSpot Radius="95" XYZ="780.3098, 130.1281, -123.6179" />
+			</HotSpots>
+			<ItemNames>
+				<ItemName>Perlite</ItemName>
+				<ItemName>Durium Ore</ItemName>
+			</ItemNames>
+			<GatherRotation>Ephemeral</GatherRotation>
+		</ExGather>
+	</While>
   </Order>
 </Profile>

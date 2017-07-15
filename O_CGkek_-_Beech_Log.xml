@@ -56,25 +56,27 @@
   </CodeChunks>
   <Order>
     <RunCode Name="Prospect" />
- <!--  <If Condition="not IsOnMap(614)">
-      <TeleportTo Name="Namai" AetheryteId="107" />
-    </If>-->
-    <ExMoveTo XYZ="488.0241, 102.7371, -43.9359" /> <!-- Moving us to the mining area -->
+    <If Condition="not IsOnMap(612)">
+      <TeleportTo Name="The Peering Stones" AetheryteId="99" />
+    </If>
+    <ExMoveTo XYZ="91.69914, 48.55192, -405.1123" /> <!-- Moving us to the mining area -->
+    <RunCode Name="Dismount" />
+    <RunCode Name="DisableMount" /> <!-- We add a DisableMount so it doesn't mount up and break stealth -->
+    <RunCode Name="Stealth" />
     <ExGather DiscoverUnknowns="True" While="True">
-      <GatherObject>Mineral Deposit</GatherObject>
+      <GatherObject>Mature Tree</GatherObject>
       <GatherSpots>
-        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="597.9043, 90.80827, 94.77574" nodeLocation="608.4475, 94.5528, 80.633" />
-        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="608.4475, 94.5528, 80.633" nodeLocation="594.0188, 87.54358, 51.05505" />
-<!--        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="157.1964, 134.6943, -325.1740" nodeLocation="167.7637, 136.6348, -336.8020" />-->
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="505.2564, 201.6008, 397.2795" nodeLocation="520.2643, 203.4863, 401.4426" />
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="653.5877, 198.4029, 381.8159" nodeLocation="654.9224, 200.0075, 389.1308" />
+        <StealthApproachGatherSpot ReturnToStealthLocation="False" stealthLocation="784.4226, 203.7669, 386.7077" nodeLocation="794.0467, 204.9896, 389.052" />
       </GatherSpots>
       <HotSpots>
-			<HotSpot Radius="95" XYZ="515.2913, 52.35513, -85.44527" />
-			<HotSpot Radius="95" XYZ="396.4030, 69.19125, -9.003082" />
-<!--		<HotSpot Radius="95" XYZ="167.7336, 142.8796, -338.2339" />-->
-			<HotSpot Radius="95" XYZ="582.809, 97.34485, 101.4786" />
+        <HotSpot Radius="95" XYZ="-565.3145, 125.0201, -388.7635" />
+        <HotSpot Radius="95" XYZ="-656.3101, 139.8023, -336.7847" />
+        <HotSpot Radius="95" XYZ="-555.2128, 113.0888, -271.1271" />
       </HotSpots>
       <ItemNames>
-        <ItemName>Durium Ore</ItemName>
+        <ItemName>Beech Log</ItemName>
       </ItemNames>
       <GatherRotation>RegularNode</GatherRotation>
     </ExGather>

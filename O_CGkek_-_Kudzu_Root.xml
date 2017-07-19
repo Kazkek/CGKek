@@ -22,18 +22,18 @@
     <If Condition="not IsOnMap(612)">
       <TeleportTo Name="The Peering Stones" AetheryteId="99" />
     </If>
-    <ExMoveTo XYZ="-194.7289, 83.64198, -538.4447" /> <!-- Moving us to the mining area -->
+    <ExMoveTo XYZ="-544.2352, 76.69021, 261.4748" /> <!-- Moving us to the mining area -->
     <ExGather DiscoverUnknowns="True" While="True">
       <GatherObject>Lush Vegetation Patch</GatherObject>
       <GatherSpots>
       </GatherSpots>
       <HotSpots>
-        <HotSpot Radius="95" XYZ="-239.8459, 71.60309, -568.9036" />
-        <HotSpot Radius="95" XYZ="-271.3096, 80.50651, -666.7536" />
-        <HotSpot Radius="95" XYZ="-110.3031, 69.87663, -644.4458" />
+        <HotSpot Radius="95" XYZ="-544.2352, 76.69021, 261.4748" />
+        <HotSpot Radius="95" XYZ="-386.3618, 56.25453, 163.8403" />
+        <HotSpot Radius="95" XYZ="-528.6233, 95.48255, 163.3703" />
       </HotSpots>
       <ItemNames>
-        <ItemName>Bloodhemp</ItemName>
+        <ItemName>Kudzu Root</ItemName>
       </ItemNames>
       <GatherRotation>RegularNode</GatherRotation>
     </ExGather>

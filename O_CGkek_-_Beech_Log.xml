@@ -59,7 +59,7 @@
     <If Condition="not IsOnMap(612)">
       <TeleportTo Name="The Peering Stones" AetheryteId="99" />
     </If>
-    <ExMoveTo XYZ="91.69914, 48.55192, -405.1123" /> <!-- Moving us to the mining area -->
+    <ExMoveTo XYZ="-564.6088, 131.7018, -397.2913" /> <!-- Moving us to the mining area -->
     <RunCode Name="Dismount" />
     <RunCode Name="DisableMount" /> <!-- We add a DisableMount so it doesn't mount up and break stealth -->
     <RunCode Name="Stealth" />

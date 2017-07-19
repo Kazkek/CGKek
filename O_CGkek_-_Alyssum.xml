@@ -19,21 +19,21 @@
   <Name>[O] [BOT] Leveling 61-70 (v1.0.0)</Name>
 
   <Order>
-    <If Condition="not IsOnMap(612)">
-      <TeleportTo Name="The Peering Stones" AetheryteId="99" />
+    <If Condition="not IsOnMap(620)">
+      <TeleportTo Name="Ala Ghiri" AetheryteId="101" />
     </If>
-    <ExMoveTo XYZ="-194.7289, 83.64198, -538.4447" /> <!-- Moving us to the mining area -->
+    <ExMoveTo XYZ="160.2892, 365.8272, 411.4508" /> <!-- Moving us to the mining area -->
     <ExGather DiscoverUnknowns="True" While="True">
       <GatherObject>Lush Vegetation Patch</GatherObject>
       <GatherSpots>
       </GatherSpots>
       <HotSpots>
-        <HotSpot Radius="95" XYZ="-239.8459, 71.60309, -568.9036" />
-        <HotSpot Radius="95" XYZ="-271.3096, 80.50651, -666.7536" />
-        <HotSpot Radius="95" XYZ="-110.3031, 69.87663, -644.4458" />
+        <HotSpot Radius="95" XYZ="169.4512, 325.8658, 485.4708" />
+        <HotSpot Radius="95" XYZ="276.7768, 359.9636, 575.2479" />
+        <HotSpot Radius="95" XYZ="309.8311, 355.4015, 386.3835" />
       </HotSpots>
       <ItemNames>
-        <ItemName>Bloodhemp</ItemName>
+        <ItemName>Alyssum</ItemName>
       </ItemNames>
       <GatherRotation>RegularNode</GatherRotation>
     </ExGather>

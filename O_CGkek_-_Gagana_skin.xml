@@ -1,0 +1,24 @@
+<Profile>
+<!-- The aetheryte Won't help here, mannualy move to Delta Quadrant  -->
+  <Name>Gagana Skin</Name>
+  <KillRadius>300</KillRadius>
+  <GrindAreas>
+    <GrindArea name="The Striped Hills">
+      <Hotspots>
+        <Hotspot Radius="350" X="17.50343" Y="68.11584" Z="-497.1374" name="First Spot" />
+		<Hotspot Radius="200" X="56.63384" Y="60.14638" Z="-276.4778" name="Second Spot" />
+      </Hotspots>
+      <TargetMobs>
+        <TargetMob Name="Lesser Gagana" Id="5672" />
+      </TargetMobs>
+      <MinLevel>1</MinLevel>
+      <MaxLevel>71</MaxLevel>
+    </GrindArea>
+  </GrindAreas>
+  <Order>
+	<If Condition="not IsOnMap(612)">
+			<LogMessage Message= "Manually Teleport to The Fringes"/>
+	</If>
+    <Grind grindRef="The Striped Hills" while="Core.Player.ClassLevel &lt; 71" />
+  </Order>
+</Profile>
